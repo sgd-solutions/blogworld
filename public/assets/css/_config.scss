@@ -1,0 +1,33 @@
+/* -------------------------- Config Styling Starts -------------------------- */
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    &:link {
+        color: rgb(5, 5, 172);
+    }
+    
+    &:visited {
+        color: rgb(5, 5, 172);
+    }
+    
+    &:hover {
+        color: #ececec;
+    }
+}
+
+input, textarea, select {
+    margin: 0;
+    padding: 0;
+}
+/* -------------------------- Config Styling Ends -------------------------- */

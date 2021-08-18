@@ -1,0 +1,120 @@
+<script src="../../assets/js/registration.js" defer></script>
+
+<section class="registration">
+    <fieldset>
+        <legend><h3>Registration</h3></legend>
+
+        <div id="divMsg" class="message"></div>
+        
+        <input type="hidden" id="errorOptions" value="<%= JSON.stringify(data.errorOptions); %>">
+        <form name="frmRegistration" id="frmRegistration">
+            <input type="hidden" name="hdnUsernameExist" id="hdnUsernameExist" value="">
+            <input type="hidden" name="hdnEmailExist" id="hdnEmailExist" value="">
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="f_name">First Name</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="f_name" id="f_name" placeholder="First Name" value="" required>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required"></span>
+                    <span><label for="l_name">Last Name</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="l_name" id="l_name" placeholder="Last Name" value="">
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="age">Age</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="age" id="age" placeholder="Age" value="" min="0" max="100" required>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="">Gender</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="radio" name="gender" id="genderM" value="M">
+                    <label for="genderM">Male</label>
+                    <input type="radio" name="gender" id="genderF" value="F">
+                    <label for="genderF">Female</label>
+                    <input type="hidden" name="" id="gender" value="">
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="username">Username</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="username" id="username" placeholder="Username" value="" required>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="password">Password</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="password" name="password" id="password" placeholder="Password" value="" required>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="email">Email</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="email" name="email" id="email" placeholder="Email" value="" required>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required"></span>
+                    <span><label for="profile_pic">Photo</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="file" name="profile_pic" id="profile_pic" placeholder="Photo">
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <hr>
+            <div>
+                <button type="button" name="btnSubmit" id="btnSubmit" value="Submit">Register</button>
+            </div>
+        </form>
+    </fieldset>
+</section>

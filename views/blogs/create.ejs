@@ -1,0 +1,67 @@
+<section class="registration">
+    <fieldset>
+        <legend><h3>Create a Blog</h3></legend>
+        <div id="divMsg" class="message validation-error">
+            <%
+            if( data.hasErr )
+            {
+            %>
+                <!-- <%= //data.msg; %> -->
+                <ul>
+                    <% Object.values(data.objError).forEach((val) => { %>
+                        <li><%= val; %></li>
+                    <% }); %>
+                </ul>
+            <%
+            }
+            %>
+        </div>
+        
+        <form name="frmCreate" id="frmCreate" action="/blogs/create" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="title">Title</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="title" id="title" placeholder="Enter a Title" value="<%= data.fields.title; %>">
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="description">Description</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <textarea name="description" id="description" placeholder="Enter some Description"><%= data.fields.description; %></textarea>
+                </div>
+                <div class="clear-b"></div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required"></span>
+                    <span><label for="photos">Photo</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="file" name="photos" id="photos" multiple placeholder="Upload Images" value="">
+                </div>
+                <div class="clear-b"></div>
+            </div>
+            <!-- <div>
+                <label for="documents">Documents: </label>
+                <input type="file" name="documents" id="documents" multiple placeholder="Upload Documents">
+            </div> -->
+            
+            <hr>
+            <div>
+                <button type="submit" name="btnNormalSubmit" id="btnNormalSubmit" value="NormalSubmit">Submit</button>
+            </div>
+        </form>
+    </fieldset>
+</section>

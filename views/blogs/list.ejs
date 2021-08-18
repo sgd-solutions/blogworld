@@ -1,0 +1,109 @@
+<section>
+    <h2><em>Blogs</em></h2>
+    <p><%= data.msg ? data.msg : ''; %></p>
+    <div>
+        <table draggable="false" border="1">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Posted On</th>
+                    <th style="width: 90px;">Posted By</th>
+                    <% if( global.userData.isLoggedIn ) { %>
+                        <th>Actions</th>
+                    <% } %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <%
+                if( data.dataset )
+                {
+                    for( let obj of data.dataset )
+                    {
+                        let d = new Date(obj.created);
+                        console.log(d.getDate());
+                    %>
+                        <tr>
+                            <td><%= obj.title; %></td>
+                            <td><%= obj.description; %></td>
+                            <td>
+                                <%
+                                let filePath = "/assets/img/no-image.jpg";
+                                if( obj.photos != undefined && obj.photos.length )
+                                {
+                                    filePath = `/uploads/blogs/${obj.photos[0]}`;
+                                }
+                                %>
+                                <img alt="Photo" src="<%= filePath; %>" width="120">
+                            </td>
+                            <td><%= obj.created ? obj.created : '0000-00-00'; %></td>
+                            <td><%= obj.user_id ? obj.user_id.username : 'Admin'; %></td>
+                            <% if( global.userData.isLoggedIn ) { %>
+                                <td>
+                                    <% if( obj.user_id && (obj.user_id._id == global.userData.id) ) { %>
+                                        <div style="width: max-content;">
+                                            <span>
+                                                <a href="/blogs/update/<%= obj.id; %>">
+                                                    <img alt="Edit" title="Edit" width="20" src="/assets/img/icon-edit-pencil.png">
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="/blogs/delete/<%= obj.id; %>" onclick="return confirm('Are you sure to delete?');">
+                                                    <img alt="Delete" title="Delete" width="20" src="/assets/img/icon-delete.png">
+                                                </a>
+                                            </span>
+                                        </div>
+                                    <% } %>
+                                </td>
+                            <% } %>
+                        </tr>
+                    <%
+                    }
+                }
+                %>
+            </tbody>
+            
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="pagination">
+                        <%
+                        if( data.totalRcds > 0 )
+                        {
+                            if( data.page > 1 )
+                            {
+                            %>
+                                <a title="First" href="/blogs/list/?page=1">&lt;&lt;</a>
+                                <a title="Previous" href="/blogs/list/?page=<%= data.page - 1; %>">&lt;</a>
+                            <%
+                            }
+
+                            for( let p = 1; p <= data.numberOfPages; p++ )
+                            {
+                                let href = "javascript: void(0);", cssClass = "selected";
+                                if( data.page != p )
+                                {
+                                    href = `/blogs/list/?page=${p}`;
+                                    cssClass = '';
+                                }
+                                %>
+                                <a class="<%= cssClass; %>" href="<%= href; %>"><%= p; %></a>
+                            <%
+                            }
+
+                            if( data.page < data.numberOfPages )
+                            {
+                            %>
+                                <a title="Next" href="/blogs/list/?page=<%= data.page + 1; %>">&gt;</a>
+                                <a title="Last" href="/blogs/list/?page=<%= data.numberOfPages; %>">&gt;&gt;</a>
+                            <%
+                            }
+                        }
+                        %>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>

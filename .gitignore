@@ -1,0 +1,8 @@
+/.vscode
+/node_modules
+/REST.http
+/server.js
+/public/uploads/blogs/*.jpg
+/public/uploads/blogs/*.png
+/public/uploads/users/*.jpg
+/public/uploads/users/*.png

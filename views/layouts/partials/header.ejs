@@ -1,0 +1,52 @@
+<header>
+    <div class="header-banner"></div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li style="position: relative;" onmouseover="document.getElementById('subMenu').style.display = 'block';" onmouseout="document.getElementById('subMenu').style.display = 'none';">
+                    <a href="/blogs">Blog</a>
+                    <ul id="subMenu" class="sub-menu">
+                        <li><a href="/blogs/create">Create Blog</a></li>
+                        <li><a href="/blogs/list">List Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+
+            <div>
+                <%
+                if( userData.isLoggedIn )
+                {
+                %>
+                    <div class="nav-profile-photo">
+                        <!-- <img alt="Profile" src="/assets/img/no-image.jpg" height="41"> -->
+                        <img alt="Profile" src="<%= userData.profile_pic; %>" height="41">
+                    </div>
+                <%
+                }
+                %>
+                <div>
+                    <div class="nav-profile-info">Welcome <em><%= userData.isLoggedIn ? userData.username : 'Guest'; %>!</em></div>
+                    <div class="nav-profile-actions">
+                        <%
+                        if( userData.isLoggedIn )
+                        {
+                        %>
+                            <a href="/users/logout">Sign-Out</a>
+                        <%
+                        }
+                        else
+                        {
+                        %>
+                            <a href="/users/login">Sign-In</a> | <a href="/users/registration">Register</a>
+                        <%
+                        }
+                        %>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

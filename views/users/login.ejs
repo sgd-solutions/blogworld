@@ -1,0 +1,40 @@
+<script src="../../assets/js/login.js" defer></script>
+
+<section class="registration">
+    <fieldset>
+        <legend><h3>Login</h3></legend>
+
+        <div id="divMsg" class="message" style="display: none;"></div>
+        
+        <form name="formLogin" id="formLogin">
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="username">Username</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="text" name="username" id="username" placeholder="Username" value="" >
+                </div>
+                <div class="clear-b"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field-label">
+                    <span class="required">*</span>
+                    <span><label for="password">Password</label></span>
+                </div>
+                <div class="colon-seperator">:</div>
+                <div class="form-field-wrapper">
+                    <input type="password" name="password" id="password" placeholder="Password" value="" >
+                </div>
+                <div class="clear-b"></div>
+            </div>
+            
+            <hr>
+            <div>
+                <button type="submit" name="btnSubmit" id="btnSubmit" value="Submit">Login</button>
+            </div>
+        </form>
+    </fieldset>
+</section>

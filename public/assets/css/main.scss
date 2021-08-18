@@ -1,0 +1,110 @@
+@import "./config";
+@import "./header";
+
+/* -------------------------- Main Styling Starts -------------------------- */
+body {
+    /*min-height: 800px;*/
+    background-color: aliceblue;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.two-column {
+    display: grid;
+    column-gap: 2px;
+    width: 100%;
+    grid-template-columns: 4fr 1fr;
+    margin: 1px auto;
+    min-height: 330px;
+}
+
+section {
+    background-color: #e6e6e6;
+    padding: 0 10px;
+}
+
+aside{
+    height: 100%;
+    background-color: #bdeabf;
+    padding: 0 10px;
+    width: auto;
+}
+
+.message {
+    margin: 0 0 15px 0;
+    
+    ul {
+        padding-left: 15px;
+    }
+}
+
+.validation-error {
+    color: #a40808;
+}
+.validation-success {
+    color: #138125;
+}
+
+.pagination {
+    background-color: rgba(169, 169, 169, 0.904);
+
+    .selected {
+        color: #e0e0e0;
+        cursor: default;
+    }
+}
+
+@mixin formRowElem {
+    float: left;
+}
+
+.registration {
+    .form-row {
+        margin: 2px 1px 6px 0px;
+    }
+
+    .required {
+        width: 8px;
+        display: inline-block;
+        color: #c82828;
+    }
+
+    .form-field-label {
+        @include formRowElem();
+        width: 10%;
+    }
+
+    .colon-seperator {
+        @include formRowElem();
+        width: 1%;
+    }
+
+    .form-field-wrapper {
+        @include formRowElem();
+        width: auto;
+
+        input:not([type="radio"], [type="checkbox"]), textarea {
+            width: 200px;
+        }
+    }
+
+    .field-error {
+        display: block;
+        color: #a40808;
+    }
+
+    .field-success {
+        display: block;
+        color: #138125;
+    }
+}
+
+.clear-b {
+    clear: both;
+}
+/* -------------------------- Main Styling Ends -------------------------- */
+
+@import "./footer";
